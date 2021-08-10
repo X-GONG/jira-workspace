@@ -17,8 +17,8 @@ export const cleanObject = (object: object) => {
 };
 
 // 解决快速输入下反复请求
-// 后面用泛型来规范类型
-export const useDebounce = (value: unknown, delay?: number): any=> {
+// 用泛型来规范类型 <V>
+export const useDebounce = <V>(value: V, delay?: number)=> {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     // 每次在value变化后设置一个定时器
