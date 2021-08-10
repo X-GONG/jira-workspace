@@ -5,6 +5,8 @@ import { useState } from "react"
 import { cleanObject, useDebounce } from "utils"
 import * as qs from "qs"
 
+// 在静态代码中找到其中的一些错误  -> 强类型
+
 // 'http://localhost:3001'
 const apiUrl = 'http://localhost:3001'
 

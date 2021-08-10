@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value) => (value === 0 ? false : !value);
-export const cleanObject = (object) => {
+export const isFalsy = (value: unknown): boolean => (value === 0 ? false : !value);
+export const cleanObject = (object: object) => {
   const result = { ...object };
   Object.keys(result).forEach((key) => {
+    // @ts-ignore
     const value = result[key];
     if (isFalsy(value)) {
+      // @ts-ignore
       delete result[key];
     }
   });
@@ -15,7 +17,8 @@ export const cleanObject = (object) => {
 };
 
 // 解决快速输入下反复请求
-export const useDebounce = (value, delay) => {
+// 后面用泛型来规范类型
+export const useDebounce = (value: unknown, delay?: number): any=> {
   const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
     // 每次在value变化后设置一个定时器
