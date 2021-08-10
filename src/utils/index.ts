@@ -28,3 +28,9 @@ export const useDebounce = <V>(value: V, delay?: number)=> {
   }, [value, delay]);
   return debouncedValue;
 };
+
+export const useMount = (callback: () => void) => {
+  useEffect(() => {
+    callback();
+  }, []);
+};
